@@ -1,0 +1,3246 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #030811;
+    color: #eee8d5;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   STAR BACKGROUND
+========================================= */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(48, 79, 117, 0.16),
+            transparent 55%
+        );
+}
+
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    box-shadow:
+        0 0 5px rgba(255, 255, 255, 0.65);
+
+    animation:
+        twinkle 3s infinite ease-in-out;
+}
+
+
+@keyframes twinkle {
+
+    0% {
+        opacity: 0.08;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0.08;
+        transform: scale(0.8);
+    }
+
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+#home {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    padding: 80px 25px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(76, 108, 148, 0.20),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(38, 70, 108, 0.20),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            180deg,
+            #030811 0%,
+            #071321 55%,
+            #050d18 100%
+        );
+}
+
+
+#home::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 750px;
+    height: 750px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(150, 180, 210, 0.06),
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(760px, 92%);
+
+    padding: 65px 30px;
+
+    animation:
+        introAppear 1.8s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+
+@keyframes introAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.eyebrow {
+
+    margin-bottom: 30px;
+
+    color: #c9b878;
+
+    font-size: 11px;
+
+    letter-spacing: 8px;
+
+    text-transform: uppercase;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+h1 {
+
+    font-size: clamp(
+        52px,
+        9vw,
+        96px
+    );
+
+    font-weight: normal;
+
+    letter-spacing: 4px;
+
+    line-height: 1.1;
+
+    color: #f4efe1;
+
+    text-shadow:
+
+        0 0 20px rgba(255, 255, 255, 0.08),
+
+        0 0 60px rgba(112, 150, 190, 0.10);
+}
+
+
+/* =========================================
+   YEARS
+========================================= */
+
+.years {
+
+    margin-top: 25px;
+
+    color: #aebdce;
+
+    font-size: 18px;
+
+    letter-spacing: 10px;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+
+    position: relative;
+
+    width: 250px;
+
+    height: 1px;
+
+    margin: 42px auto;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(201, 184, 120, 0.85),
+            transparent
+        );
+}
+
+
+.divider::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -52%);
+
+    padding: 0 12px;
+
+    color: #c9b878;
+
+    font-size: 12px;
+
+    background: #071321;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.intro-text {
+
+    max-width: 570px;
+
+    margin: auto;
+
+    color: #aeb8c4;
+
+    font-size: 16px;
+
+    line-height: 2;
+
+    letter-spacing: 0.25px;
+}
+
+
+/* =========================================
+   SEE MEMORIES BUTTON
+========================================= */
+
+#enterButton,
+#memoriesButton {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 190px;
+
+    height: 52px;
+
+    margin-top: 52px;
+
+    padding: 0 34px;
+
+    border: 1px solid
+        rgba(201, 184, 120, 0.65);
+
+    background:
+        rgba(7, 18, 31, 0.65);
+
+    color: #d9ca96;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+
+/* Gold glow behind button */
+
+#enterButton::after,
+#memoriesButton::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 184, 120, 0.10),
+            transparent 65%
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+
+/* Shimmer */
+
+#enterButton::before,
+#memoriesButton::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.10),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.7s ease;
+
+    z-index: 2;
+}
+
+
+#enterButton:hover,
+#memoriesButton:hover {
+
+    color: #f1e8c5;
+
+    border-color:
+        rgba(220, 204, 145, 0.95);
+
+    background:
+        rgba(18, 32, 49, 0.85);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(201, 184, 120, 0.16),
+
+        inset 0 0 20px
+        rgba(201, 184, 120, 0.05);
+
+    transform: translateY(-4px);
+}
+
+
+#enterButton:hover::before {
+
+    left: 140%;
+}
+
+
+#enterButton:hover::after {
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   JOURNEY SECTION
+========================================= */
+
+#journey {
+
+    position: relative;
+
+    z-index: 1;
+
+    min-height: 100vh;
+
+    padding: 150px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #050d18 0%,
+            #07111e 50%,
+            #030811 100%
+        );
+}
+
+
+#journey::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 700px;
+    height: 350px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(80, 110, 145, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+#journey h2 {
+
+    position: relative;
+
+    font-size: clamp(
+        38px,
+        6vw,
+        54px
+    );
+
+    font-weight: normal;
+
+    color: #dfd19f;
+
+    margin-bottom: 28px;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 25px rgba(201, 184, 120, 0.08);
+}
+
+
+#journey p {
+
+    position: relative;
+
+    max-width: 620px;
+
+    color: #9faab7;
+
+    font-size: 16px;
+
+    line-height: 2;
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+#home::after {
+
+    content: "↓";
+
+    position: absolute;
+
+    bottom: 32px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: rgba(201, 184, 120, 0.55);
+
+    font-size: 20px;
+
+    animation:
+        floatDown 2s ease-in-out infinite;
+}
+
+
+@keyframes floatDown {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, 0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform:
+            translate(-50%, 7px);
+        opacity: 0.8;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #home {
+        padding: 50px 15px;
+    }
+
+
+    .intro {
+
+        width: 96%;
+
+        padding: 55px 12px;
+    }
+
+
+    .eyebrow {
+
+        margin-bottom: 23px;
+
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    h1 {
+
+        font-size: clamp(
+            43px,
+            14vw,
+            68px
+        );
+
+        letter-spacing: 1px;
+    }
+
+
+    .years {
+
+        margin-top: 19px;
+
+        font-size: 13px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .divider {
+
+        width: 170px;
+
+        margin: 35px auto;
+    }
+
+
+    .intro-text {
+
+        max-width: 350px;
+
+        font-size: 14px;
+
+        line-height: 1.9;
+    }
+
+
+    #enterButton {
+
+        min-width: 175px;
+
+        height: 49px;
+
+        margin-top: 42px;
+
+        padding: 0 25px;
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+
+    #journey {
+
+        padding: 110px 20px;
+    }
+
+
+    #journey h2 {
+
+        font-size: 35px;
+
+        margin-bottom: 22px;
+    }
+
+
+    #journey p {
+
+        font-size: 14px;
+
+        line-height: 1.9;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .star,
+    .intro,
+    #home::after {
+        animation: none;
+    }
+
+}
+
+/* Make See the Memories match Begin the Journey */
+#memoriesButton {
+    position: relative;
+
+    margin-top: 30px;
+
+    padding: 14px 32px;
+
+    border: 1px solid
+        rgba(201, 184, 120, 0.7);
+
+    background:
+        rgba(10, 22, 38, 0.65);
+
+    color: #d9ca96;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+}
+
+#memoriesButton:hover {
+    background:
+        rgba(201, 184, 120, 0.12);
+
+    box-shadow:
+        0 0 25px
+        rgba(201, 184, 120, 0.18);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   STORY CONTENT
+========================================= */
+
+.section-content {
+    width: min(760px, 92%);
+    margin: 0 auto 100px;
+    text-align: center;
+}
+
+.section-content .eyebrow {
+    margin-bottom: 22px;
+}
+
+.story-intro {
+    max-width: 650px;
+    margin: 0 auto 24px;
+
+    color: #aeb8c4;
+
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+    position: relative;
+
+    width: min(850px, 92%);
+
+    margin: 0 auto;
+
+    padding: 30px 0 40px;
+}
+
+
+/* Vertical timeline line */
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(201, 184, 120, 0.45) 8%,
+            rgba(201, 184, 120, 0.45) 92%,
+            transparent
+        );
+}
+
+
+/* =========================================
+   TIMELINE ITEM
+========================================= */
+
+.timeline-item {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 150px;
+
+    margin-bottom: 55px;
+}
+
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   YEAR
+========================================= */
+
+.timeline-year {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    border: 1px solid
+        rgba(201, 184, 120, 0.65);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #0c1b2c 35%,
+            #071321 100%
+        );
+
+    color: #d9ca96;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 0 20px
+        rgba(201, 184, 120, 0.07);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================
+   TIMELINE CARD
+========================================= */
+
+.timeline-card {
+
+    position: relative;
+
+    width: calc(50% - 65px);
+
+    padding: 28px 32px;
+
+    border: 1px solid
+        rgba(140, 163, 188, 0.16);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 30, 48, 0.78),
+            rgba(6, 16, 28, 0.82)
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.20);
+
+    text-align: left;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* Alternating sides */
+
+.timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+
+/* Small connector from card to year */
+
+.timeline-item:nth-child(odd) .timeline-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: -65px;
+    top: 50%;
+
+    width: 65px;
+    height: 1px;
+
+    background:
+        rgba(201, 184, 120, 0.35);
+}
+
+
+.timeline-item:nth-child(even) .timeline-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: -65px;
+    top: 50%;
+
+    width: 65px;
+    height: 1px;
+
+    background:
+        rgba(201, 184, 120, 0.35);
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.timeline-card h3 {
+
+    margin-bottom: 12px;
+
+    color: #dfd19f;
+
+    font-size: 21px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+}
+
+
+.timeline-card p {
+
+    color: #9faab7;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.timeline-item:hover .timeline-card {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(201, 184, 120, 0.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 37, 58, 0.88),
+            rgba(7, 18, 31, 0.90)
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.30),
+
+        0 0 25px
+        rgba(201, 184, 120, 0.05);
+}
+
+
+.timeline-item:hover .timeline-year {
+
+    transform:
+        translateX(-50%)
+        scale(1.08);
+
+    border-color:
+        rgba(220, 204, 145, 0.95);
+
+    box-shadow:
+        0 0 25px
+        rgba(201, 184, 120, 0.15);
+}
+
+
+/* =========================================
+   CONTINUE SECTION
+========================================= */
+
+.continue-section {
+
+    margin-top: 120px;
+
+    text-align: center;
+}
+
+
+.continue-section p {
+
+    margin-bottom: 0;
+
+    color: #9faab7;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   MEMORIES BUTTON
+========================================= */
+
+#memoriesButton {
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   MOBILE TIMELINE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .memory-image {
+    height: 230px;
+}
+
+    .section-content {
+        margin-bottom: 70px;
+    }
+
+
+    .story-intro {
+        font-size: 14px;
+
+        line-height: 1.9;
+    }
+
+
+    .timeline {
+
+        width: 94%;
+
+        padding-left: 45px;
+    }
+
+
+    /* Move timeline line to left */
+
+    .timeline::before {
+
+        left: 18px;
+
+        transform: none;
+    }
+
+
+    .timeline-item {
+
+        min-height: auto;
+
+        margin-bottom: 38px;
+
+        display: block;
+    }
+
+
+    /* Put year on the timeline */
+
+    .timeline-year {
+
+        left: 18px;
+
+        width: 38px;
+        height: 38px;
+
+        transform: translateX(-50%);
+
+        font-size: 9px;
+    }
+
+
+    .timeline-card {
+
+        width: 100%;
+
+        padding: 22px 23px;
+
+        margin-left: 25px;
+
+        text-align: left;
+    }
+
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+
+        justify-content: initial;
+    }
+
+
+    /* Disable horizontal connectors on mobile */
+
+    .timeline-item:nth-child(odd) .timeline-card::after,
+    .timeline-item:nth-child(even) .timeline-card::after {
+
+        display: none;
+    }
+
+
+    .timeline-card h3 {
+
+        font-size: 18px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .timeline-card p {
+
+        font-size: 13px;
+
+        line-height: 1.75;
+    }
+
+
+    .timeline-item:hover .timeline-year {
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+    }
+
+
+    .continue-section {
+
+        margin-top: 90px;
+    }
+
+}
+
+/* =========================================
+   TIMELINE SCROLL ANIMATIONS
+========================================= */
+
+/* Starting state */
+
+.timeline-item {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* When JavaScript adds .visible */
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Cards come in slightly from their side */
+
+.timeline-item:nth-child(odd) .timeline-card {
+    transform: translateX(-35px);
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease 0.15s,
+        transform 0.8s cubic-bezier(.22, 1, .36, 1) 0.15s;
+}
+
+
+.timeline-item:nth-child(even) .timeline-card {
+    transform: translateX(35px);
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease 0.15s,
+        transform 0.8s cubic-bezier(.22, 1, .36, 1) 0.15s;
+}
+
+
+.timeline-item.visible:nth-child(odd) .timeline-card,
+.timeline-item.visible:nth-child(even) .timeline-card {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* Year circle appears after the card */
+
+.timeline-year {
+    opacity: 0;
+    transform:
+        translateX(-50%)
+        scale(0.7);
+
+    transition:
+        opacity 0.5s ease 0.3s,
+        transform 0.6s cubic-bezier(.22, 1, .36, 1) 0.3s;
+}
+
+
+.timeline-item.visible .timeline-year {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+}
+
+
+/* =========================================
+   STAGGER EACH YEAR
+========================================= */
+
+.timeline-item:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.timeline-item:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.timeline-item:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.timeline-item:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+.timeline-item:nth-child(5) {
+    transition-delay: 0.45s;
+}
+
+.timeline-item:nth-child(6) {
+    transition-delay: 0.55s;
+}
+
+.timeline-item:nth-child(7) {
+    transition-delay: 0.65s;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .timeline-item:nth-child(odd) .timeline-card,
+    .timeline-item:nth-child(even) .timeline-card {
+
+        transform: translateY(25px);
+    }
+
+
+    .timeline-item.visible:nth-child(odd) .timeline-card,
+    .timeline-item.visible:nth-child(even) .timeline-card {
+
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================
+   CHAPTER II — MEMORIES
+========================================= */
+
+#memories {
+    min-height: 100vh;
+    padding: 140px 20px 120px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(3, 8, 17, 0),
+            rgba(7, 19, 33, 0.45)
+        );
+
+    scroll-margin-top: 40px;
+}
+
+
+/* HEADER */
+
+.memories-header {
+    width: min(760px, 92%);
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+.memory-intro {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: #aeb8c4;
+
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+/* GALLERY */
+
+.memories-grid {
+    width: min(1050px, 92%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+}
+
+
+/* MEMORY CARD */
+
+.memory-card {
+    overflow: hidden;
+
+    border: 1px solid
+        rgba(140, 163, 188, 0.16);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 30, 48, 0.78),
+            rgba(6, 16, 28, 0.88)
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(201, 184, 120, 0.38);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.35),
+        0 0 25px
+        rgba(201, 184, 120, 0.06);
+}
+
+
+/* PLACEHOLDER IMAGE */
+
+.memory-placeholder {
+    height: 270px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 184, 120, 0.08),
+            transparent 55%
+        );
+
+    border-bottom: 1px solid
+        rgba(140, 163, 188, 0.12);
+}
+
+.memory-placeholder span {
+    color: #d9ca96;
+
+    font-size: 30px;
+
+    animation:
+        memoryGlow 3s ease-in-out infinite;
+}
+
+.memory-placeholder p {
+    margin: 0;
+
+    color: #687789;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* MEMORY INFORMATION */
+
+.memory-info {
+    padding: 25px 28px 30px;
+}
+
+.memory-date {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c9b878;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.memory-info h3 {
+    margin-bottom: 10px;
+
+    color: #dfd19f;
+
+    font-size: 21px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+}
+
+.memory-info p {
+    margin: 0;
+
+    color: #9faab7;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* ENDING */
+
+.memories-ending {
+    margin-top: 110px;
+
+    text-align: center;
+
+    color: #9faab7;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    letter-spacing: 1px;
+}
+
+.memories-ending span {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #c9b878;
+
+    font-size: 18px;
+}
+
+
+/* GLOW */
+
+@keyframes memoryGlow {
+
+    0%, 100% {
+        opacity: 0.55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    #memories {
+        padding-top: 100px;
+    }
+
+    .memories-grid {
+        grid-template-columns: 1fr;
+
+        width: min(500px, 92%);
+    }
+
+    .memory-placeholder {
+        height: 230px;
+    }
+
+    .memory-info {
+        padding: 22px;
+    }
+
+}
+
+.continue-section {
+    margin-top: 60px;
+}
+
+/* =========================================
+   MEMORY IMAGES
+========================================= */
+
+.memory-image {
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+
+    background: #071321;
+
+    border-bottom: 1px solid
+        rgba(140, 163, 188, 0.12);
+}
+
+.memory-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.memory-card:hover .memory-image img {
+    transform: scale(1.05);
+
+    filter: brightness(1.08);
+}
+
+/* =========================================
+CHAPTER III — MORE THAN MEMORIES
+========================================= */
+
+#chapter-three {
+position: relative;
+z-index: 1;
+min-height: 100vh;
+padding: 160px 25px 130px;
+text-align: center;
+overflow: hidden;
+
+background:
+    radial-gradient(
+        ellipse at 50% 25%,
+        rgba(76, 108, 148, 0.10),
+        transparent 45%
+    ),
+    linear-gradient(
+        180deg,
+        #030811 0%,
+        #06111e 50%,
+        #030811 100%
+    );
+
+}
+
+/* Subtle glow */
+
+#chapter-three::before {
+content: "";
+position: absolute;
+top: 8%;
+left: 50%;
+
+width: 650px;
+height: 650px;
+
+transform: translateX(-50%);
+
+border-radius: 50%;
+
+background:
+    radial-gradient(
+        circle,
+        rgba(201, 184, 120, 0.045),
+        transparent 65%
+    );
+
+pointer-events: none;
+
+}
+
+/* =========================================
+MAIN CONTENT
+========================================= */
+
+.chapter-three-content {
+position: relative;
+z-index: 2;
+
+width: min(900px, 94%);
+margin: 0 auto;
+
+}
+
+/* =========================================
+TITLE
+========================================= */
+
+#chapter-three h2 {
+margin-bottom: 28px;
+
+color: #dfd19f;
+
+font-size: clamp(
+    38px,
+    6vw,
+    58px
+);
+
+font-weight: normal;
+letter-spacing: 3px;
+
+text-shadow:
+    0 0 25px rgba(201, 184, 120, 0.08);
+
+}
+
+/* =========================================
+INTRO
+========================================= */
+
+.chapter-three-intro {
+max-width: 680px;
+
+margin: 0 auto 25px;
+
+color: #aeb8c4;
+
+font-size: 16px;
+line-height: 2;
+
+letter-spacing: 0.2px;
+
+}
+
+/* =========================================
+LITTLE THINGS
+========================================= */
+
+.little-things {
+width: min(900px, 100%);
+
+margin: 90px auto 0;
+
+display: grid;
+
+grid-template-columns:
+    repeat(2, 1fr);
+
+gap: 25px;
+
+}
+
+/* =========================================
+LITTLE CARD
+========================================= */
+
+.little-card {
+position: relative;
+
+padding: 42px 35px;
+
+border: 1px solid
+    rgba(140, 163, 188, 0.15);
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(14, 30, 48, 0.70),
+        rgba(6, 16, 28, 0.85)
+    );
+
+box-shadow:
+    0 15px 40px
+    rgba(0, 0, 0, 0.20);
+
+text-align: center;
+
+transition:
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    background 0.45s ease;
+
+}
+
+/* Small gold line */
+
+.little-card::before {
+content: "";
+
+position: absolute;
+
+top: 0;
+left: 50%;
+
+width: 0;
+height: 1px;
+
+transform: translateX(-50%);
+
+background:
+    rgba(201, 184, 120, 0.8);
+
+transition:
+    width 0.45s ease;
+
+}
+
+/* Hover */
+
+.little-card:hover {
+transform: translateY(-8px);
+
+border-color:
+    rgba(201, 184, 120, 0.32);
+
+background:
+    linear-gradient(
+        135deg,
+        rgba(18, 37, 58, 0.82),
+        rgba(7, 18, 31, 0.92)
+    );
+
+box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.32),
+
+    0 0 30px
+    rgba(201, 184, 120, 0.05);
+
+}
+
+.little-card:hover::before {
+width: 70px;
+}
+
+/* =========================================
+LITTLE CARD ICON
+========================================= */
+
+.little-icon {
+display: block;
+
+margin-bottom: 20px;
+
+color: #c9b878;
+
+font-size: 25px;
+
+text-shadow:
+    0 0 15px
+    rgba(201, 184, 120, 0.20);
+
+transition:
+    transform 0.4s ease,
+    text-shadow 0.4s ease;
+
+}
+
+.little-card:hover .little-icon {
+transform:
+translateY(-3px)
+scale(1.1);
+
+text-shadow:
+    0 0 25px
+    rgba(201, 184, 120, 0.35);
+
+}
+
+/* =========================================
+LITTLE CARD TEXT
+========================================= */
+
+.little-card h3 {
+margin-bottom: 14px;
+
+color: #dfd19f;
+
+font-size: 21px;
+
+font-weight: normal;
+
+letter-spacing: 1px;
+
+}
+
+.little-card p {
+margin: 0;
+
+color: #9faab7;
+
+font-size: 14px;
+
+line-height: 1.85;
+
+}
+
+/* =========================================
+PERSONAL MESSAGE
+========================================= */
+
+.chapter-three-message {
+width: min(720px, 94%);
+
+margin: 130px auto 0;
+
+padding: 65px 35px;
+
+position: relative;
+
+border-top: 1px solid
+    rgba(201, 184, 120, 0.18);
+
+border-bottom: 1px solid
+    rgba(201, 184, 120, 0.18);
+
+background:
+    radial-gradient(
+        ellipse at center,
+        rgba(201, 184, 120, 0.035),
+        transparent 70%
+    );
+
+}
+
+/* Message paragraphs */
+
+.chapter-three-message p {
+max-width: 600px;
+
+margin: 0 auto 22px;
+
+color: #aeb8c4;
+
+font-size: 16px;
+
+line-height: 2;
+
+letter-spacing: 0.2px;
+
+}
+
+/* =========================================
+MESSAGE SYMBOL
+========================================= */
+
+.message-symbol {
+display: block;
+
+margin: 0 auto 28px;
+
+color: #c9b878;
+
+font-size: 17px;
+
+opacity: 0.8;
+
+}
+
+.chapter-three-message .message-symbol:last-child {
+margin:
+30px auto 0;
+}
+
+/* =========================================
+FINAL MESSAGE
+========================================= */
+
+.chapter-three-message h3 {
+margin-top: 35px;
+
+color: #eee8d5;
+
+font-size: clamp(
+    27px,
+    5vw,
+    38px
+);
+
+font-weight: normal;
+
+letter-spacing: 2px;
+
+text-shadow:
+    0 0 25px
+    rgba(255, 255, 255, 0.08);
+
+}
+
+/* =========================================
+CHAPTER THREE ENDING
+========================================= */
+
+.chapter-three-ending {
+margin-top: 120px;
+
+text-align: center;
+
+}
+
+.chapter-three-ending p {
+margin-bottom: 0;
+
+color: #8f9baa;
+
+font-size: 15px;
+
+font-style: italic;
+
+letter-spacing: 1px;
+
+}
+
+/* =========================================
+NEXT CHAPTER BUTTON
+========================================= */
+
+#nextChapterButton {
+position: relative;
+
+display: inline-flex;
+
+align-items: center;
+justify-content: center;
+
+min-width: 220px;
+height: 52px;
+
+margin-top: 30px;
+
+padding: 0 34px;
+
+border: 1px solid
+    rgba(201, 184, 120, 0.65);
+
+background:
+    rgba(7, 18, 31, 0.65);
+
+color: #d9ca96;
+
+font-family: inherit;
+
+font-size: 12px;
+
+letter-spacing: 3px;
+
+text-transform: uppercase;
+
+cursor: pointer;
+
+overflow: hidden;
+
+transition:
+    transform 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+
+}
+
+/* Glow */
+
+#nextChapterButton::after {
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+background:
+    radial-gradient(
+        circle at center,
+        rgba(201, 184, 120, 0.10),
+        transparent 65%
+    );
+
+opacity: 0;
+
+transition:
+    opacity 0.35s ease;
+
+}
+
+/* Shimmer */
+
+#nextChapterButton::before {
+content: "";
+
+position: absolute;
+
+top: 0;
+left: -120%;
+
+width: 70%;
+height: 100%;
+
+background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.10),
+        transparent
+    );
+
+transform: skewX(-20deg);
+
+transition:
+    left 0.7s ease;
+
+z-index: 2;
+
+}
+
+#nextChapterButton:hover {
+color: #f1e8c5;
+
+border-color:
+    rgba(220, 204, 145, 0.95);
+
+background:
+    rgba(18, 32, 49, 0.85);
+
+box-shadow:
+    0 0 25px
+    rgba(201, 184, 120, 0.16),
+
+    inset 0 0 20px
+    rgba(201, 184, 120, 0.05);
+
+transform:
+    translateY(-4px);
+
+}
+
+#nextChapterButton:hover::before {
+left: 140%;
+}
+
+#nextChapterButton:hover::after {
+opacity: 1;
+}
+
+/* =========================================
+CHAPTER III REVEAL ANIMATION
+========================================= */
+
+.little-card {
+opacity: 1;
+
+transform:
+    translateY(35px);
+
+transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(.22, 1, .36, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    background 0.45s ease;
+
+}
+
+/* JavaScript will add .visible */
+
+.little-card.visible {
+opacity: 1;
+
+transform:
+    translateY(0);
+
+}
+
+/* Stagger */
+
+.little-card:nth-child(1) {
+transition-delay: 0.05s;
+}
+
+.little-card:nth-child(2) {
+transition-delay: 0.15s;
+}
+
+.little-card:nth-child(3) {
+transition-delay: 0.25s;
+}
+
+.little-card:nth-child(4) {
+transition-delay: 0.35s;
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+#chapter-three {
+    padding:
+        110px 18px 100px;
+}
+
+
+#chapter-three h2 {
+    font-size: 35px;
+
+    letter-spacing: 1px;
+}
+
+
+.chapter-three-intro {
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+.little-things {
+    grid-template-columns: 1fr;
+
+    width: min(500px, 94%);
+
+    margin-top: 70px;
+
+    gap: 20px;
+}
+
+
+.little-card {
+    padding:
+        35px 25px;
+}
+
+
+.little-card h3 {
+    font-size: 19px;
+}
+
+
+.little-card p {
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+.chapter-three-message {
+    margin-top: 90px;
+
+    padding:
+        50px 22px;
+}
+
+
+.chapter-three-message p {
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+.chapter-three-message h3 {
+    font-size: 28px;
+
+    line-height: 1.4;
+}
+
+
+.chapter-three-ending {
+    margin-top: 90px;
+}
+
+
+#nextChapterButton {
+    min-width: 205px;
+
+    height: 49px;
+
+    padding: 0 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+}
+
+/* =========================================
+REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+.little-card {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+}
+
+}
+
+/* =========================================
+   CHAPTER IV — PERSONAL LETTER
+========================================= */
+
+#chapter-four {
+    min-height: 100vh;
+    padding: 140px 20px;
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(35, 70, 120, 0.18),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #030811 0%,
+            #050d19 50%,
+            #030811 100%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapter-four-content {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+}
+
+/* ---------- TITLE ---------- */
+
+#chapter-four h2 {
+    margin-top: 18px;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #f5ead3;
+}
+
+/* ---------- LETTER ---------- */
+
+.letter {
+    max-width: 700px;
+    margin: 65px auto 0;
+    text-align: left;
+}
+
+.letter p {
+    margin-bottom: 28px;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: rgba(245, 234, 211, 0.72);
+}
+
+.letter-highlight {
+    margin-top: 45px;
+    text-align: center;
+    font-size: 1.2rem !important;
+    color: #e7c978 !important;
+    font-style: italic;
+}
+
+/* ---------- SYMBOL ---------- */
+
+.chapter-four-symbol {
+    margin: 65px 0;
+    font-size: 1.5rem;
+    color: #d8b85c;
+    text-shadow:
+        0 0 10px rgba(216, 184, 92, 0.5),
+        0 0 25px rgba(216, 184, 92, 0.2);
+}
+
+/* ---------- FINAL MESSAGE ---------- */
+
+.final-message {
+    padding: 55px 35px;
+    border-top: 1px solid rgba(216, 184, 92, 0.25);
+    border-bottom: 1px solid rgba(216, 184, 92, 0.25);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216, 184, 92, 0.05),
+            transparent 65%
+        );
+}
+
+.final-message p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(245, 234, 211, 0.68);
+}
+
+.final-message h3 {
+    margin-top: 40px;
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-weight: 400;
+    color: #f5ead3;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- ENDING ---------- */
+
+.chapter-four-ending {
+    margin-top: 80px;
+}
+
+.chapter-four-ending p {
+    margin-bottom: 30px;
+    color: rgba(245, 234, 211, 0.55);
+    font-style: italic;
+}
+
+/* ---------- BUTTON ---------- */
+
+#finalChapterButton {
+    position: relative;
+    padding: 15px 32px;
+
+    border: 1px solid rgba(216, 184, 92, 0.7);
+    border-radius: 3px;
+
+    background: rgba(8, 18, 32, 0.75);
+
+    color: #e7c978;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#finalChapterButton:hover {
+    transform: translateY(-3px);
+
+    background: rgba(216, 184, 92, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(216, 184, 92, 0.15),
+        0 0 45px rgba(216, 184, 92, 0.08);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+    #chapter-four {
+        padding: 110px 22px;
+    }
+
+    #chapter-four h2 {
+        font-size: 2.2rem;
+    }
+
+    .letter {
+        margin-top: 45px;
+    }
+
+    .letter p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .final-message {
+        padding: 45px 20px;
+    }
+
+    .final-message h3 {
+        font-size: 1.8rem;
+    }
+
+    #finalChapterButton {
+        width: 100%;
+        max-width: 300px;
+    }
+
+}
+
+/* =========================================
+   CHAPTER V — THE FINALE
+========================================= */
+
+#chapter-five {
+    min-height: 100vh;
+    padding: 150px 20px;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(40, 75, 130, 0.18),
+            transparent 50%
+        ),
+        linear-gradient(
+            180deg,
+            #030811 0%,
+            #02060d 100%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.chapter-five-content {
+    width: 100%;
+    max-width: 850px;
+}
+
+#chapter-five h2 {
+    margin-top: 18px;
+
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+
+    color: #f5ead3;
+
+    text-shadow:
+        0 0 25px rgba(245, 234, 211, 0.08);
+}
+
+.finale-intro {
+    max-width: 600px;
+
+    margin: 50px auto 0;
+
+    font-size: 1.08rem;
+    line-height: 1.9;
+
+    color: rgba(245, 234, 211, 0.6);
+}
+
+
+/* =========================================
+   CONSTELLATION
+========================================= */
+
+.constellation {
+    position: relative;
+
+    width: 360px;
+    height: 260px;
+
+    margin: 80px auto 55px;
+}
+
+.constellation-star {
+    position: absolute;
+
+    font-size: 20px;
+
+    color: #e7c978;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    text-shadow:
+        0 0 8px rgba(231, 201, 120, 0.8),
+        0 0 25px rgba(231, 201, 120, 0.4);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+/* Star positions */
+
+.star-one {
+    left: 15%;
+    top: 58%;
+}
+
+.star-two {
+    left: 30%;
+    top: 30%;
+}
+
+.star-three {
+    left: 48%;
+    top: 55%;
+}
+
+.star-four {
+    left: 65%;
+    top: 22%;
+}
+
+.star-five {
+    left: 78%;
+    top: 50%;
+}
+
+.star-six {
+    left: 55%;
+    top: 78%;
+}
+
+
+/* =========================================
+   CONSTELLATION LINES
+========================================= */
+
+.constellation-line {
+    position: absolute;
+
+    height: 1px;
+
+    background: rgba(231, 201, 120, 0.35);
+
+    transform-origin: left center;
+
+    width: 0;
+
+    transition:
+        width 1.2s ease;
+}
+
+
+/* Individual lines */
+
+.line-one {
+    left: 19%;
+    top: 56%;
+    width: 0;
+    transform: rotate(-48deg);
+}
+
+.line-two {
+    left: 34%;
+    top: 35%;
+    width: 0;
+    transform: rotate(45deg);
+}
+
+.line-three {
+    left: 52%;
+    top: 52%;
+    width: 0;
+    transform: rotate(-55deg);
+}
+
+.line-four {
+    left: 69%;
+    top: 27%;
+    width: 0;
+    transform: rotate(65deg);
+}
+
+.line-five {
+    left: 51%;
+    top: 58%;
+    width: 0;
+    transform: rotate(35deg);
+}
+
+
+/* =========================================
+   CONSTELLATION ACTIVE STATE
+========================================= */
+
+.constellation.active .constellation-star {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.constellation.active .star-one {
+    transition-delay: 0.1s;
+}
+
+.constellation.active .star-two {
+    transition-delay: 0.3s;
+}
+
+.constellation.active .star-three {
+    transition-delay: 0.5s;
+}
+
+.constellation.active .star-four {
+    transition-delay: 0.7s;
+}
+
+.constellation.active .star-five {
+    transition-delay: 0.9s;
+}
+
+.constellation.active .star-six {
+    transition-delay: 1.1s;
+}
+
+
+.constellation.active .line-one {
+    width: 80px;
+    transition-delay: 0.4s;
+}
+
+.constellation.active .line-two {
+    width: 75px;
+    transition-delay: 0.6s;
+}
+
+.constellation.active .line-three {
+    width: 75px;
+    transition-delay: 0.8s;
+}
+
+.constellation.active .line-four {
+    width: 70px;
+    transition-delay: 1s;
+}
+
+.constellation.active .line-five {
+    width: 70px;
+    transition-delay: 1.2s;
+}
+
+
+/* =========================================
+   FINAL BUTTON
+========================================= */
+
+#revealMessageButton {
+    padding: 15px 32px;
+
+    border: 1px solid rgba(216, 184, 92, 0.7);
+    border-radius: 3px;
+
+    background: rgba(8, 18, 32, 0.75);
+
+    color: #e7c978;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#revealMessageButton:hover {
+    transform: translateY(-3px);
+
+    background: rgba(216, 184, 92, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(216, 184, 92, 0.15),
+        0 0 45px rgba(216, 184, 92, 0.08);
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+#finaleMessage {
+    max-width: 680px;
+
+    margin: 70px auto 0;
+
+    padding: 60px 35px;
+
+    border-top: 1px solid rgba(216, 184, 92, 0.25);
+    border-bottom: 1px solid rgba(216, 184, 92, 0.25);
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+#finaleMessage.visible {
+    opacity: 1;
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+#finaleMessage p {
+    margin-bottom: 28px;
+
+    font-size: 1.05rem;
+    line-height: 1.9;
+
+    color: rgba(245, 234, 211, 0.7);
+}
+
+.finale-symbol {
+    margin: 10px 0 40px;
+
+    color: #e7c978;
+
+    font-size: 1.5rem;
+
+    text-shadow:
+        0 0 12px rgba(231, 201, 120, 0.6);
+}
+
+#finaleMessage h3 {
+    margin: 45px 0;
+
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+
+    font-weight: 400;
+
+    color: #f5ead3;
+}
+
+.finale-ending {
+    margin-top: 45px;
+
+    font-style: italic;
+
+    color: #e7c978 !important;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #chapter-five {
+        padding: 120px 20px;
+    }
+
+    #chapter-five h2 {
+        font-size: 2.4rem;
+    }
+
+    .constellation {
+        width: 300px;
+        height: 230px;
+    }
+
+    #finaleMessage {
+        padding: 50px 20px;
+    }
+
+    #finaleMessage p {
+        font-size: 1rem;
+    }
+
+}
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+
+#musicToggle {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(216, 184, 92, 0.6);
+    border-radius: 50%;
+
+    background: rgba(3, 8, 17, 0.8);
+
+    color: #e7c978;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    z-index: 1000;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#musicToggle.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#musicToggle:hover {
+    transform: scale(1.08);
+
+    background: rgba(216, 184, 92, 0.08);
+
+    box-shadow:
+        0 0 15px rgba(216, 184, 92, 0.25),
+        0 0 35px rgba(216, 184, 92, 0.1);
+}
+
+#musicToggle.playing {
+    animation: musicPulse 2s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 8px rgba(216, 184, 92, 0.15);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(216, 184, 92, 0.35);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    #musicToggle {
+        right: 18px;
+        bottom: 18px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+}
+
+/* =========================================
+   FIX — TIMELINE CARD HOVER
+========================================= */
+
+.timeline-item.visible:hover .timeline-card {
+    transform: translateY(-5px) !important;
+    border-color: rgba(201, 184, 120, 0.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 37, 58, 0.88),
+            rgba(7, 18, 31, 0.90)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.30),
+        0 0 25px rgba(201, 184, 120, 0.05);
+}
+
+/* =========================================
+   CHAPTER II — MEMORY CARD FLOATING
+   Works with existing scroll animation
+========================================= */
+
+.memories-grid .memory-card {
+    animation: memoryFloat 6s ease-in-out infinite;
+}
+
+/* Give each card a slightly different rhythm */
+.memories-grid .memory-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.memories-grid .memory-card:nth-child(2) {
+    animation-delay: -1s;
+}
+
+.memories-grid .memory-card:nth-child(3) {
+    animation-delay: -2s;
+}
+
+.memories-grid .memory-card:nth-child(4) {
+    animation-delay: -3s;
+}
+
+.memories-grid .memory-card:nth-child(5) {
+    animation-delay: -4s;
+}
+
+.memories-grid .memory-card:nth-child(6) {
+    animation-delay: -5s;
+}
+
+@keyframes memoryFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+/* =========================================
+   CHAPTER I — TIMELINE CARD FLOATING
+========================================= */
+
+.timeline-item.visible .timeline-card {
+    animation: timelineFloat 6s ease-in-out infinite;
+}
+
+/* Slightly different movement for each card */
+
+.timeline-item:nth-child(1) .timeline-card {
+    animation-delay: 0s;
+}
+
+.timeline-item:nth-child(2) .timeline-card {
+    animation-delay: -1s;
+}
+
+.timeline-item:nth-child(3) .timeline-card {
+    animation-delay: -2s;
+}
+
+.timeline-item:nth-child(4) .timeline-card {
+    animation-delay: -3s;
+}
+
+.timeline-item:nth-child(5) .timeline-card {
+    animation-delay: -4s;
+}
+
+.timeline-item:nth-child(6) .timeline-card {
+    animation-delay: -5s;
+}
+
+.timeline-item:nth-child(7) .timeline-card {
+    animation-delay: -2.5s;
+}
+
+@keyframes timelineFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* =========================================
+   CHAPTER III — LITTLE CARD FLOATING
+========================================= */
+
+.little-card.visible {
+    animation: littleCardFloat 5s ease-in-out infinite;
+}
+
+/* Different timing so they don't move together */
+
+.little-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.little-card:nth-child(2) {
+    animation-delay: -1.2s;
+}
+
+.little-card:nth-child(3) {
+    animation-delay: -2.4s;
+}
+
+.little-card:nth-child(4) {
+    animation-delay: -3.6s;
+}
+
+@keyframes littleCardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+/* =========================================
+   FINALE — CINEMATIC TRANSITION
+========================================= */
+
+#chapter-four {
+    position: relative;
+}
+
+#chapter-four::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -80px;
+    width: 1px;
+    height: 160px;
+    background: linear-gradient(
+        to bottom,
+        rgba(201, 184, 120, 0),
+        rgba(201, 184, 120, 0.25),
+        rgba(201, 184, 120, 0)
+    );
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CHAPTER V — FINALE ATMOSPHERE
+========================================= */
+
+#chapter-five {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft glow behind the constellation */
+
+#chapter-five::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: 420px;
+    height: 420px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        rgba(201, 184, 120, 0.055) 0%,
+        rgba(201, 184, 120, 0.025) 35%,
+        transparent 70%
+    );
+    filter: blur(15px);
+    pointer-events: none;
+    animation: finaleGlow 5s ease-in-out infinite;
+}
+
+@keyframes finaleGlow {
+    0%, 100% {
+        opacity: 0.45;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+}
+
+
+/* =========================================
+   CONSTELLATION — GENTLE MOVEMENT
+========================================= */
+
+.constellation {
+    animation: constellationFloat 7s ease-in-out infinite;
+}
+
+@keyframes constellationFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* Stars gently pulse after appearing */
+
+.constellation.active .constellation-star {
+    animation:
+        constellationStarReveal 1s ease forwards,
+        constellationPulse 3.5s ease-in-out infinite 1.5s;
+}
+
+@keyframes constellationStarReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes constellationPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 3px rgba(201, 184, 120, 0.25));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px rgba(201, 184, 120, 0.65));
+    }
+}
+
+
+/* =========================================
+   FINALE MESSAGE — SOFT APPEARANCE
+========================================= */
+
+#finaleMessage.visible {
+    animation: finaleMessageReveal 1.4s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+@keyframes finaleMessageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   CHAPTER I — CENTER OPENING
+========================================= */
+
+#journey {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
