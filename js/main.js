@@ -51,12 +51,16 @@ if (enterButton) {
 
     enterButton.addEventListener("click", () => {
 
-        const journey =
-            document.getElementById("journey");
+        const journey = document.getElementById("journey");
 
         if (journey) {
 
-            journey.scrollIntoView({
+            const journeyPosition =
+                journey.getBoundingClientRect().top +
+                window.pageYOffset;
+
+            window.scrollTo({
+                top: journeyPosition,
                 behavior: "smooth"
             });
 
